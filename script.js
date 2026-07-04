@@ -1,24 +1,24 @@
 const messages = [
 {
 text:"💌 Kuchh Kahna Tha Aapse...",
-gif:"images/message.gif"
+gif:"images/1.gif"
 },
 {
 text:"😔 I Miss You Very Much...",
-gif:"images/missyou.gif"
+gif:"images/2.gif"
 },
 {
 text:"🧸 I Need A Tight Hug...",
-gif:"images/hug.gif"
+gif:"images/3.gif"
 },
 {
 {
 text:"😚 I Want A Cuddle Moment...",
-gif:"images/cuddle.gif"
+gif:"images/4.gif"
 },
 {
 text:"❤️ Lastly... I Love You So Much!",
-gif:"images/love.gif"
+gif:"images/5.gif"
 }
 ];
 
