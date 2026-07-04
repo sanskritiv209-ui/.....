@@ -1,49 +1,63 @@
 body{
     margin:0;
     padding:0;
-    font-family:Arial,sans-serif;
+    font-family:Arial;
     background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    height:100vh;
     overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
 }
 
+/* Screen */
 .screen{
     text-align:center;
     color:white;
     z-index:2;
 }
 
+/* Gift */
 .gift{
-    font-size:100px;
+    font-size:90px;
     animation:jump 1s infinite;
 }
 
+/* Glow Text */
+.glow{
+    text-shadow:0 0 10px white;
+}
+
+/* Button */
 button{
-    margin-top:20px;
-    padding:12px 28px;
+    padding:12px 25px;
     border:none;
     border-radius:30px;
     background:#ff1744;
     color:white;
     font-size:18px;
+    margin-top:20px;
     cursor:pointer;
-    transition:.3s;
+    animation:beat 1.5s infinite;
 }
 
-button:hover{
-    transform:scale(1.1);
-}
-
+/* Text */
 #typing{
-    width:90%;
-    margin:auto;
-    font-size:28px;
-    line-height:1.8;
+    font-size:26px;
+    margin-bottom:15px;
+    text-shadow:0 0 10px rgba(255,255,255,0.8);
 }
 
+/* GIF */
+#gif{
+    width:260px;
+    border-radius:20px;
+    margin:20px auto;
+    display:block;
+    animation:fade 1s ease;
+}
+
+/* Heart Rain */
 .hearts{
     position:fixed;
     width:100%;
@@ -54,22 +68,27 @@ button:hover{
 
 .heart{
     position:absolute;
+    font-size:22px;
     color:#ff1744;
-    font-size:25px;
     animation:fall linear infinite;
 }
 
+/* Animations */
 @keyframes fall{
-    from{
-        transform:translateY(-10vh);
-    }
-    to{
-        transform:translateY(110vh);
-    }
+    from{transform:translateY(-10vh);}
+    to{transform:translateY(110vh);}
 }
 
 @keyframes jump{
-    50%{
-        transform:translateY(-15px);
-    }
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
 }
