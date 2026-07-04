@@ -1,9 +1,25 @@
 const messages = [
-"💌 Kuchh Kahna Tha Aapse...",
-"😔 I Miss You Very Much...",
-"🧸 I Need A Tight Hug...",
-"😚 I Want A Cuddle Moment...",
-"❤️ Lastly... I Love You So Much!"
+{
+text:"💌 Kuchh Kahna Tha Aapse...",
+gif:"images/message.gif"
+},
+{
+text:"😔 I Miss You Very Much...",
+gif:"images/missyou.gif"
+},
+{
+text:"🧸 I Need A Tight Hug...",
+gif:"images/hug.gif"
+},
+{
+{
+text:"😚 I Want A Cuddle Moment...",
+gif:"images/cuddle.gif"
+},
+{
+text:"❤️ Lastly... I Love You So Much!",
+gif:"images/love.gif"
+}
 ];
 
 let index = 0;
@@ -11,50 +27,65 @@ let index = 0;
 function openGift(){
     document.getElementById("giftScreen").style.display="none";
     document.getElementById("messageScreen").style.display="block";
+
+    document.getElementById("bgmusic").play();
+
     showMessage();
 }
 
 function showMessage(){
-    let text = messages[index];
-    let i = 0;
-    let typing = document.getElementById("typing");
-    typing.innerHTML="";
-    document.getElementById("nextBtn").style.display="none";
 
-    let interval = setInterval(()=>{
+    let typing = document.getElementById("typing");
+    let gif = document.getElementById("gif");
+    let btn = document.getElementById("nextBtn");
+
+    let text = messages[index].text;
+
+    gif.src = messages[index].gif;
+
+    typing.innerHTML = "";
+
+    let i = 0;
+
+    btn.style.display = "none";
+
+    let type = setInterval(()=>{
         typing.innerHTML += text.charAt(i);
         i++;
 
-        if(i==text.length){
-            clearInterval(interval);
+        if(i === text.length){
+            clearInterval(type);
 
-            if(index == messages.length-1){
-                document.getElementById("teddy").style.display="block";
+            btn.style.display = "inline-block";
+
+            if(index === messages.length - 1){
+                btn.innerText = "❤️ The End ❤️";
             }else{
-                document.getElementById("nextBtn").style.display="inline-block";
+                btn.innerText = "Next ❤️";
             }
         }
     },70);
 }
 
 function nextMessage(){
-    index++;
-    showMessage();
+    if(index < messages.length - 1){
+        index++;
+        showMessage();
+    }else{
+        document.getElementById("nextBtn").style.display="none";
+    }
 }
 
-// Heart Rain
-const hearts=document.getElementById("hearts");
+/* Heart Rain */
+const hearts = document.getElementById("hearts");
 
 setInterval(()=>{
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(3+Math.random()*3)+"s";
-    hearts.appendChild(heart);
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.animationDuration = (3 + Math.random()*3) + "s";
+    hearts.appendChild(h);
 
-    setTimeout(()=>{
-        heart.remove();
-    },6000);
-
+    setTimeout(()=>h.remove(),6000);
 },250);
