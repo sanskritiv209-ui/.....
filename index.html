@@ -3,79 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>For Someone Special</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-
-.card{
-    width:90%;
-    max-width:400px;
-    background:#fff;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
-    animation:fadeIn 2s ease;
-}
-
-h1{
-    color:#ff4d6d;
-    margin-bottom:20px;
-}
-
-p{
-    font-size:20px;
-    margin:15px 0;
-    color:#333;
-}
-
-.footer{
-    margin-top:25px;
-    color:#ff1744;
-    font-size:24px;
-    font-weight:bold;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="card">
-    <h1>💌 A Message For You 💌</h1>
+<!-- 🎵 Background Music -->
+<audio id="bgmusic" loop>
+    <source src="images/music.mp3" type="audio/mp3">
+</audio>
 
-    <p>💌 <b>Kuchh Kahna Tha Aapse...</b></p>
-    <p>😔 I Miss You Very Much...</p>
-    <p>🧸 I Need A Tight Hug...</p>
-    <p>😚 I Want A Cuddle Moment...</p>
-    <p>❤️ Lastly... <b>I Love You So Much!</b></p>
+<!-- ❤️ Heart Rain -->
+<div class="hearts" id="hearts"></div>
 
-    <div class="footer">❤️ Forever & Always ❤️</div>
+<!-- 🎁 Gift Screen -->
+<div id="giftScreen" class="screen">
+
+    <div class="gift">🎁</div>
+
+    <h1 class="glow">Hi... ❤️</h1>
+
+    <p>Kuchh Kahna Tha Aapse...</p>
+
+    <button onclick="openGift()">💌 Open This</button>
+
 </div>
 
+<!-- 💌 Message Screen -->
+<div id="messageScreen" class="screen" style="display:none;">
+
+    <h2 id="typing"></h2>
+
+    <img id="gif" src="">
+
+    <button id="nextBtn" onclick="nextMessage()">
+        Next ❤️
+    </button>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
